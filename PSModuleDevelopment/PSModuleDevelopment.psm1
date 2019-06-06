@@ -1,5 +1,5 @@
 ﻿$script:PSModuleRoot = $PSScriptRoot
-$script:PSModuleVersion = "2.2.6.51"
+$script:PSModuleVersion = (Import-PowerShellDataFile -Path "$($script:PSModuleRoot)\PSModuleDevelopment.psd1").ModuleVersion
 
 $script:doDotSource = $false
 if (Get-PSFConfigValue -FullName PSModuleDevelopment.Import.DoDotSource) { $script:doDotSource = $true }
@@ -29,8 +29,9 @@ function Import-PSMDFile
 		$Path
 	)
 	
-	if ($script:doDotSource) { . (Resolve-Path $Path) }
-	else { $ExecutionContext.InvokeCommand.InvokeScript($false, ([scriptblock]::Create([io.file]::ReadAllText($(Resolve-Path $Path)))), $null, $null) }
+	$resolvedPath = $ExecutionContext.SessionState.Path.GetResolvedPSPathFromPSPath($Path).ProviderPath
+	if ($script:doDotSource) { . $resolvedPath }
+	else { $ExecutionContext.InvokeCommand.InvokeScript($false, ([scriptblock]::Create([io.file]::ReadAllText($resolvedPath))), $null, $null) }
 }
 #endregion Helper function
 

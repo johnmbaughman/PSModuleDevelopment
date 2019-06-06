@@ -1,6 +1,34 @@
 ﻿# Changelog
-##
- - Mew: Get-PSMDArgumentCompleter - lists registered argument completers on PS5+
+## 2.2.6.72 (May 27th, 2019)
+ - New: Template AzureFunction - Creates a basic azure function scaffold
+ - New: Template AzureFunctionTimer - Creates a timer triggered Azure Function
+ - Upd: Template AzureFunctionRest - Redesigned to only spawn a function rest endpoint to insert into the base AzureFunction template.
+ - Upd: Template PSFProject - Improved Azure Functions creation experience, added client module support.
+
+## 2.2.6.68 (May 3rd, 2019)
+ - Upd: Template PSFProject - Improved Azure Functions creation experience
+
+## 2.2.6.67 (May 2nd, 2019)
+ - Upd: Invoke-PSMDTemplate adding tab completion
+ - Fix: Invoke-PSMDTemplate fails to create templates
+
+## 2.2.6.65 (May 2nd, 2019)
+ - New: Template: AzureFunctionRest - creates an azure function designed for rest API trigger.
+ - Upd: Template: PSFProject added Azure Functions Project CI/CD integration.
+ - Upd: Invoke-PSMDTemplate supports `-Encoding` parameter, defaulting to utf8 with BOM.
+
+## 2.2.6.62 (April 30th, 2019)
+ - New: Get-PSMDArgumentCompleter - Lists registered argument completers on PS5+
+ - New: Template: PSFLoggingProvider - Creates a custom logfile logging provider for module specific logging.
+ - Upd: Template: PSFTest - Adding test against module tags with whitespace
+ - Upd: Get-PSMDConstructor - Added `-NonPublic` parameter to show hidden constructors.
+ - Upd: Template: PSFModule - Improved import speed.
+ - Upd: Template: PSFProject - Add parameter `-LocalRepo`
+ - Upd: Template: PSFProject - Add parameter `-AutoVersion`
+ - Fix: New-PSMDModuleNugetPackage - Resolving input path.
+ - Fix: New-PSMDModuleNugetPackage - Reregistering temp export repository if accidentally not cleaned up.
+ - Fix: Template: PSFModule - Fixed format xml closing tag
+ - Fix: Template: PSFModule - Fixed import from network share.
  
 ## 2.2.6.51 (January 29th, 2019)
  - New: Format-PSMDParameter - updates legacy parameter notation
